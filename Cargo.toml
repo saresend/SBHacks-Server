@@ -1,0 +1,8 @@
+[package]
+name = "SBHacksIV_Server"
+version = "0.1.0"
+authors = ["Samuel Resendez <saresend@usc.edu>"]
+
+[dependencies]
+
+

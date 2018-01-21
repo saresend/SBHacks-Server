@@ -1,12 +1,23 @@
-extern crate eventsource;
+#![feature(plugin)]
+#![plugin(rocket_codegen)]
+
+#[macro_use]
+extern crate serde_json;
+#[macro_use]
+extern crate serde_derive;
+
+extern crate serde;
+extern crate tesseract;
+extern crate rocket;
 extern crate reqwest;
-use eventsource::reqwest::Client;
-use reqwest::Url;
 
-
+mod handlers;
+use handlers::*;
 fn main() {
-    let client = Client::new(
-        Url::parse("https://sbhacks-6e5fa.firebaseio.com/test.json").unwrap(),
-    );
-    for event in client {}
+
+
+
+    rocket::ignite()
+        .mount("/", routes![index, get_text])
+        .launch();
 }
